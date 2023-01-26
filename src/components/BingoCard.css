@@ -1,0 +1,15 @@
+#game-card {
+  display: grid;
+  grid-gap: 0px;
+  row-gap: 0px;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(5, 100px);
+  border: 1px solid black;
+  width: 500px;
+  height: 300px;
+}
+
+p {
+  border: 1px solid black;
+  height: 30px
+}
