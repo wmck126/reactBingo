@@ -25,6 +25,7 @@ function BingoCard() {
   randomlyAssignCards(Garr, 46, 61, 5)
   randomlyAssignCards(Oarr, 61, 76, 5)
 
+  
 
   //Create a 5x5 grid
   //In each box assign a randomly selected number from values, no repeats
