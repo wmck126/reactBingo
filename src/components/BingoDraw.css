@@ -1,0 +1,35 @@
+#bingo-list {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#B-Row {
+  display: flex;
+  flex-direction: row;
+
+}
+
+#I-Row {
+  display: flex;
+  flex-direction: row;
+}
+
+#N-Row {
+  display: flex;
+  flex-direction: row;
+}
+
+#G-Row {
+  display: flex;
+  flex-direction: row;
+}
+
+#O-Row {
+  display: flex;
+  flex-direction: row;
+}
+
+#number {
+  padding: 10px
+}

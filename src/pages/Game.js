@@ -1,8 +1,20 @@
-import React from 'react'
+import {useState} from 'react'
+import BingoCard from '../components/BingoCard'
+import BingoDraw from '../components/BingoDraw'
 
 function Game() {
+  const [currentDraw, setCurrentDraw] = useState("")
+
+
+
   return (
-    <div>Game</div>
+    <div>
+
+
+      <BingoDraw />
+      <BingoCard />
+    </div>
+    
   )
 }
 
