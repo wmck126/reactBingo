@@ -1,7 +1,8 @@
 # Bingo
 
 ## To do:
-- Have each individual bingo number be highlighted on click
+~~- Have each individual bingo number be highlighted on click~~ 
+  - optimize
 - Create Random drawing
 - Create List of bingo numbers and which ones have already been drawn
 - Add button to do next drawing
