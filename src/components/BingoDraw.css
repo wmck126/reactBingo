@@ -30,6 +30,6 @@
   flex-direction: row;
 }
 
-#number {
+.number {
   padding: 10px
 }
