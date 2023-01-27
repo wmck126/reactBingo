@@ -1,16 +1,19 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 import './BingoDraw.css'
 
 function BingoDraw({numbersDrawn}) {
+  const [currentDraw, setCurrentDraw] = useState("")
 
+  //random number selector
   function randomDrawing(){
     const randNumber = Math.floor(Math.random() * (76 - 1) + 1)
     if(numbersDrawn.includes(randNumber) === true){
       randomDrawing()
     } else {
       numbersDrawn.push(randNumber)
+      setCurrentDraw(randNumber)
     }
-    
+    //puts a letter before the number when being called out 
     if (randNumber >= 1 && randNumber <= 15){
       alert('B' + randNumber)
     } else if (randNumber >= 16 && randNumber <=30){
@@ -24,6 +27,14 @@ function BingoDraw({numbersDrawn}) {
     }
   }
 
+  useEffect(() => {
+      document.getElementById(currentDraw).style.backgroundColor = "blue"
+    }, [currentDraw])
+  
+
+
+
+  //sets numbers to each row
   function setRowNumbers(min, max){
     let row = []
     for (let i = min; i <= max; i++){
@@ -31,6 +42,8 @@ function BingoDraw({numbersDrawn}) {
     }
     return row
   }
+
+  //assign numbers to each row on the board
   const bRow = setRowNumbers(1, 15)
   const iRow = setRowNumbers(16, 30)
   const nRow = setRowNumbers(31, 45)

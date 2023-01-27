@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import BingoCard from '../components/BingoCard'
 import BingoDraw from '../components/BingoDraw'
 
 function Game() {
-  const [currentDraw, setCurrentDraw] = useState("")
+  
   const [numbersDrawn, setNumbersDrawn] = useState([])
 
   
@@ -11,9 +11,7 @@ function Game() {
 
   return (
     <div>
-
-
-      <BingoDraw numbersDrawn={numbersDrawn} setCurrentDraw={setCurrentDraw} setNumbersDrawn={setNumbersDrawn} />
+      <BingoDraw numbersDrawn={numbersDrawn} setNumbersDrawn={setNumbersDrawn} />
       <BingoCard />
     </div>
     
