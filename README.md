@@ -17,3 +17,14 @@
   - User login
   - Keep track of users winnings
   - Create mechanic of "buying" cards and game payout
+
+
+## Bugs
+- Draw button causes bingo card to refresh numbers
+
+
+~~- Set winning conditions~~
+- If 1 winning condition is equal to users current bingo cards then user wins
+  - Check bingo cards numbers against currently drawn numbers
+  - if pattern lines up to winning conditions player has a valid bingo!
+  - if pattern doesn't line up to winning condition, alert the player to keep playing

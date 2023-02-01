@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 import './BingoDraw.css'
 
-function BingoDraw({numbersDrawn}) {
-  const [currentDraw, setCurrentDraw] = useState("")
+function BingoDraw({numbersDrawn, setCurrentDraw}) {
+  
 
   //random number selector
   function randomDrawing(){
@@ -12,24 +12,12 @@ function BingoDraw({numbersDrawn}) {
     } else {
       numbersDrawn.push(randNumber)
       setCurrentDraw(randNumber)
+      document.getElementById(randNumber).style.backgroundColor = "blue"
+      document.getElementById(randNumber).style.color = "white" 
     }
-    //puts a letter before the number when being called out 
-    if (randNumber >= 1 && randNumber <= 15){
-      alert('B' + randNumber)
-    } else if (randNumber >= 16 && randNumber <=30){
-      alert('I' + randNumber)
-    } else if (randNumber >=31 && randNumber <=45){
-      alert('N' + randNumber)
-    } else if (randNumber >=46 && randNumber <=60){
-      alert('G' + randNumber)
-    } else if (randNumber >=61 && randNumber <=75){
-      alert('O' + randNumber)
-    }
+    
   }
 
-  useEffect(() => {
-      document.getElementById(currentDraw).style.backgroundColor = "blue"
-    }, [currentDraw])
   
 
 
@@ -53,32 +41,32 @@ function BingoDraw({numbersDrawn}) {
   return (
     <div id="container">
       <div id="bingo-list">
-        <div id="B-Row">
-          <h2>B</h2>
+        <div id="Row">
+          <h2  id="letter">B</h2>
           {bRow.map((x) => (
             <p className='number' id={x}>{x}</p>
           ))}
         </div>
-        <div id="I-Row">
-          <h2>I</h2>
+        <div id="Row">
+          <h2 id="letterI">I</h2>
           {iRow.map((x) => (
             <p className='number' id={x}>{x}</p>
           ))}
         </div>
-        <div id="N-Row">
-          <h2>N</h2>
+        <div id="Row">
+          <h2 id="letterN">N</h2>
           {nRow.map((x) => (
             <p className='number' id={x}>{x}</p>
           ))}
         </div>
-        <div id="G-Row">
-        <h2>G</h2>
+        <div id="Row">
+        <h2 id="letterG">G</h2>
         {gRow.map((x) => (
             <p className='number' id={x}>{x}</p>
           ))}
         </div>
-        <div id="O-Row">
-        <h2>O</h2>
+        <div id="Row">
+        <h2 id="letter">O</h2>
         {oRow.map((x) => (
             <p className='number' id={x}>{x}</p>
           ))}

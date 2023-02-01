@@ -1,35 +1,34 @@
 #bingo-list {
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%; 
 }
 
-#B-Row {
+#Row {
   display: flex;
   flex-direction: row;
-
+  width: 100%;
 }
 
-#I-Row {
-  display: flex;
-  flex-direction: row;
-}
-
-#N-Row {
-  display: flex;
-  flex-direction: row;
-}
-
-#G-Row {
-  display: flex;
-  flex-direction: row;
-}
-
-#O-Row {
-  display: flex;
-  flex-direction: row;
-}
 
 .number {
-  padding: 10px
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  justify-content: center;
+}
+
+#letter {
+  margin-right: 11px
+}
+#letterI{
+  margin-right:15px;
+  margin-left: 5px
+}
+#letterG{
+  margin-right:12px;
+}
+#letterN{
+  margin-right: 9px
 }

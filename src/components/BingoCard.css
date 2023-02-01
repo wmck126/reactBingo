@@ -1,10 +1,21 @@
-#game-card {
+#game-columns {
   display: grid;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
-  border: 1px solid black;
   width: 500px;
-  height: 335px;
+  height: 275px;
+}
+
+#game-card {
+  border: 1px solid black;
+  width:500px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
 }
 
 input {
@@ -18,4 +29,8 @@ input {
 #selector:checked + label {
   background: blue;
   color: white;
+}
+
+#bingoBttn {
+  margin-bottom: 20px
 }

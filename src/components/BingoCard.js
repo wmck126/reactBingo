@@ -1,6 +1,23 @@
 import React from 'react'
 import "./BingoCard.css"
 
+const winners = [
+  ['b0', 'b1', 'b2', 'b3', 'b4'],
+  ['i0', 'i1', 'i2', 'i3', 'i4'],
+  ['n0', 'n1', 'n2', 'n3', 'n4'],
+  ['g0', 'g1', 'g2', 'g3', 'g4'],
+  ['o0', 'o1', 'o2', 'o3', 'o4'],
+  ['b0', 'i0', 'n0', 'g0', 'o0'],
+  ['b1', 'i1', 'n1', 'g1', 'o1'],
+  ['b2', 'i2', 'n2', 'g2', 'o2'],
+  ['b3', 'i3', 'n3', 'g3', 'o3'],
+  ['b4', 'i4', 'n4', 'g4', 'o4'],
+  ['b0', 'i1', 'n2', 'g3', 'o4'],
+  ['b4', 'i3', 'n2', 'g1', 'o0']
+]
+
+const selected = []
+
 function randomlyAssignCards(arr, max, min, iter){
   for(let i=0; i<=iter; i++){
     const newNum = Math.floor(Math.random() * (max - min +1)) + min
@@ -27,14 +44,23 @@ function BingoCard() {
 
   function handleClick(id) {
     const style = id.target.style
-    style.backgroundColor = 'blue'
-    style.color = 'white'
+    if (selected.includes(id.target.id)){
+      let index = selected.indexOf(id.target.id)
+      selected.splice(index, 1)
+      style.backgroundColor = ''
+      style.color = 'black'
+    } else {
+      selected.push(id.target.id)
+      style.backgroundColor = 'blue'
+      style.color = 'white'
+    }
   }
 
   //Create a 5x5 grid
   //In each box assign a randomly selected number from values, no repeats
   return (
     <div id="game-card">
+      <div id="game-columns">
       <div id="B-Column">
         <h2>B</h2>
         <p id='b0' onClick={(id) => handleClick(id)}>{Barr[0]}</p>
@@ -75,6 +101,8 @@ function BingoCard() {
         <p id='o3' onClick={(id) => handleClick(id)}>{Oarr[3]}</p>
         <p id='o4' onClick={(id) => handleClick(id)}>{Oarr[4]}</p>
       </div>
+      </div>
+      <button id="bingoBttn">BINGO!</button>
     </div>
   )
 }
