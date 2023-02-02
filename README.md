@@ -20,7 +20,7 @@
 
 
 ## Bugs
-- Draw button causes bingo card to refresh numbers
+~~ - Draw button causes bingo card to refresh numbers ~~
 
 
 ~~- Set winning conditions~~
