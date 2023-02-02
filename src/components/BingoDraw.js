@@ -1,8 +1,12 @@
 import {useState, useEffect} from 'react'
 import './BingoDraw.css'
 
-function BingoDraw({numbersDrawn, setCurrentDraw}) {
+function BingoDraw() {
   
+  const [numbersDrawn, setNumbersDrawn] = useState([])
+  const [currentDraw, setCurrentDraw] = useState("")
+  const [letterNumber, setLetterNumber] = useState ("")
+
 
   //random number selector
   function randomDrawing(){
@@ -15,11 +19,22 @@ function BingoDraw({numbersDrawn, setCurrentDraw}) {
       document.getElementById(randNumber).style.backgroundColor = "blue"
       document.getElementById(randNumber).style.color = "white" 
     }
-    
   }
 
-  
-
+  //adds the current number+letter pair drawn at top of page
+  useEffect(() => {
+    if (currentDraw >= 1 && currentDraw <= 15){
+      setLetterNumber('B' + currentDraw)
+    } else if (currentDraw >= 16 && currentDraw <=30){
+      setLetterNumber('I' + currentDraw)
+    } else if (currentDraw >=31 && currentDraw <=45){
+      setLetterNumber('N' + currentDraw)
+    } else if (currentDraw >=46 && currentDraw <=60){
+      setLetterNumber('G' + currentDraw)
+    } else if (currentDraw >=61 && currentDraw <=75){
+      setLetterNumber('O' + currentDraw)
+    }
+  }, [currentDraw])
 
 
   //sets numbers to each row
@@ -38,8 +53,11 @@ function BingoDraw({numbersDrawn, setCurrentDraw}) {
   const gRow = setRowNumbers(46, 60)
   const oRow = setRowNumbers(61, 75)
 
+  
+
   return (
     <div id="container">
+      <h2 id="currentDrawNumber">{letterNumber}</h2>
       <div id="bingo-list">
         <div id="Row">
           <h2  id="letter">B</h2>
@@ -72,7 +90,7 @@ function BingoDraw({numbersDrawn, setCurrentDraw}) {
           ))}
         </div>
       </div>
-      <button onClick={() => randomDrawing()}>Draw a number!</button>
+      <button type='button' onClick={() => randomDrawing()}>Draw a number!</button>
     </div>
   )
 }
