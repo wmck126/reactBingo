@@ -6,11 +6,11 @@
 ~~- Create Random drawing~~
 ~~- Create List of bingo numbers and which ones have already been drawn~~
 ~~- Add button to do next drawing~~
-- Add button to declare bingo
-- Verify that bingo is valid
-- If bingo is valid, give congrats screen
-- If not valid, continue with game
-
+~~- Add button to declare bingo ~~
+~~- Verify that bingo is valid~~
+~~- If bingo is valid, give congrats screen~~
+~~- If not valid, continue with game~~
+- Verify if numbers on card are actually the numbers that were called
 
 ## Stretch goals
 - Add back end
@@ -22,9 +22,3 @@
 ## Bugs
 ~~ - Draw button causes bingo card to refresh numbers ~~
 
-
-~~- Set winning conditions~~
-- If 1 winning condition is equal to users current bingo cards then user wins
-  - Check bingo cards numbers against currently drawn numbers
-  - if pattern lines up to winning conditions player has a valid bingo!
-  - if pattern doesn't line up to winning condition, alert the player to keep playing

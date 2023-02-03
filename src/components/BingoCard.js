@@ -25,7 +25,7 @@ function BingoCard() {
   
   const selected = []
 
-
+  //randomly assigned numbers to each column on the card w/o repeating
   function randomlyAssignCards(arr, max, min, iter){
     for(let i=0; i<=iter; i++){
       const newNum = Math.floor(Math.random() * (max - min +1)) + min
@@ -43,10 +43,8 @@ function BingoCard() {
   randomlyAssignCards(Garr, 46, 61, 5)
   randomlyAssignCards(Oarr, 61, 76, 5)
 
-
+  //highlights each number on the card and puts them in an array
   function handleClick(id) {
-    console.log(selected)
-
     const style = id.target.style
     if (selected.includes(id.target.id)){
       let index = selected.indexOf(id.target.id)
@@ -61,86 +59,19 @@ function BingoCard() {
   }
 
   function declareBingo() {
-
-    const reA = /[^a-zA-Z]/g;
-    const reN = /[^0-9]/g;
-  
-    //sort the selected array, aA == alpha, aN == number
-    function sortAlphaNum(a, b) {
-      let aA = a.replace(reA, "");
-      let bA = b.replace(reA, "");
-      if (aA === bA) {
-        let aN = parseInt(a.replace(reN, ""), 10);
-        let bN = parseInt(b.replace(reN, ""), 10);
-        return aN === bN ? 0 : aN > bN ? 1 : -1;
-      } else {
-        return aA > bA ? 1 : -1;
-      }
-    }
-  
-    selected.sort(sortAlphaNum)
-
-
-
-
     //check if selected length is less than 5
     if (selected.length < 5){
-      console.log('no bingo, too short')
+      alert("not a valid bingo")
       return 
     }
-    //initiate counters
-    let winnersCounter = 0
-    let array = 0
-    let winningCompare = []
-    
-    //compare two arrays and see if all 
-    //values in one array of the winners appears in the users selected array
-    for (let i = 0; i<selected.length + 1; i++){
-      console.log('array', array)
-      console.log('winnerscounter', winnersCounter)
-      console.log('winning compare', winningCompare)
-      //if get to end of selected array and all values match, bingo!
-      if (winningCompare.length === 5){
-        console.log('bingo!')
+    for (let i=0; i<winners.length; i++){
+      if (winners[i].every(elem => selected.includes(elem))){
+        alert("Congrats! You win!")
         return
-      } // if get to end of winners arrays, and nothing found, no bingo 
-      else if(winners[array] === undefined){
-        console.log('no bingo:(')
+      } else if(i === winners.length - 1){
+        alert("not a valid bingo")
         return
-      } else if(selected[i] === undefined){
-        array++
-        i = -1
-        winningCompare.length = 0
-        continue
-      }
-        //if winnerscounter gets to end of array and no match, go to next array, and restart for loop
-      else if (winnersCounter === 6 && winningCompare.length === 0){
-        array++
-        winnersCounter=0
-        i = -1
-        winningCompare.length = 0
-        continue
-      } else if (winnersCounter === 6 && winningCompare.length > 0){
-        winnersCounter = 0
-        continue
-      }
-      //if selected val is equal to the winners val, go to the next winners val and check
-      else if (selected[i] === winners[array][winnersCounter]){
-        console.log('match', selected[i])
-        console.log('match', winners[array][winnersCounter])
-        winningCompare.push(selected[i])
-        winnersCounter = 0
-        console.log('increasing winners')
-      }
-      //if selected is not equal to winners, continue through winners to see if the value is in there
-      else if (selected[i] !== winners[array][winnersCounter]){
-        console.log(selected[i], 'no match')
-        console.log(winners[array][winnersCounter], 'no match')
-        winnersCounter++
-        i--
-        continue
       } 
-      
     }
   }
 
