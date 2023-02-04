@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./BingoCard.css"
 
-function BingoCard() {
+function BingoCard({numbersDrawn}) {
   const Barr = []
   const Iarr = []
   const Narr = []
@@ -61,20 +61,38 @@ function BingoCard() {
   function declareBingo() {
     //check if selected length is less than 5
     if (selected.length < 5){
-      alert("not a valid bingo")
-      return 
+      return false
     }
     for (let i=0; i<winners.length; i++){
       if (winners[i].every(elem => selected.includes(elem))){
-        alert("Congrats! You win!")
-        return
+        return true
       } else if(i === winners.length - 1){
-        alert("not a valid bingo")
-        return
+        return false
       } 
     }
   }
 
+  function isCorrectNumbers() {
+    const userNumbers = []
+    selected.forEach(elem => userNumbers.push(parseInt(document.getElementById(elem).textContent)))
+    const newArray = userNumbers.filter(function (value) {
+      return !Number.isNaN(value);
+    })
+    if (newArray.every(elem => numbersDrawn.includes(elem))){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  function isAWinner(){
+    if (isCorrectNumbers() === true && declareBingo() === true){
+      alert('Congrats you win!!')
+    } else {
+      alert('Sorry not a valid bingo')
+    }
+  }
+  
   //Create a 5x5 grid
   //In each box assign a randomly selected number from values, no repeats
   //Need to optimize and not reuse lines
@@ -122,7 +140,7 @@ function BingoCard() {
         <p id='o4' onClick={(id) => handleClick(id)}>{Oarr[4]}</p>
       </div>
       </div>
-      <button onClick={() => declareBingo()} id="bingoBttn">BINGO!</button>
+      <button onClick={() => isAWinner()} id="bingoBttn">BINGO!</button>
     </div>
   )
 }

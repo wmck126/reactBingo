@@ -5,15 +5,14 @@ import './Game.css'
 
 function Game() {
   
-  
+  const [numbersDrawn, setNumbersDrawn] = useState([])
   const [currentDraw, setCurrentDraw] = useState("")
-  
 
 
   return (
     <div id="gameSpace">
-      <BingoDraw setCurrentDraw={setCurrentDraw}/>
-      <BingoCard />
+      <BingoDraw setCurrentDraw={setCurrentDraw} numbersDrawn={numbersDrawn} setNumbersDrawn={setNumbersDrawn}/>
+      <BingoCard numbersDrawn={numbersDrawn} />
     </div>
     
   )

@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react'
 import './BingoDraw.css'
 
-function BingoDraw() {
+function BingoDraw({numbersDrawn}) {
   
-  const [numbersDrawn, setNumbersDrawn] = useState([])
+  
   const [currentDraw, setCurrentDraw] = useState("")
   const [letterNumber, setLetterNumber] = useState ("")
 
