@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./BingoCard.css"
 
 function BingoCard({numbersDrawn}) {

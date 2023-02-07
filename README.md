@@ -10,7 +10,7 @@
 ~~- Verify that bingo is valid~~
 ~~- If bingo is valid, give congrats screen~~
 ~~- If not valid, continue with game~~
-- Verify if numbers on card are actually the numbers that were called
+~~- Verify if numbers on card are actually the numbers that were called~~
 
 ## Stretch goals
 - Add back end

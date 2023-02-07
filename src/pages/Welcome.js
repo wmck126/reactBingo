@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function Welcome() {
+  const navigate = useNavigate()
+
   function handleClick() {
-    console.log("clicked!")
     return (
-      <Link to="/bingoCard" />
+      navigate('/bingoCard')
     )
   }
   
