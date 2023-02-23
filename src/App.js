@@ -4,6 +4,8 @@ import Welcome from './pages/Welcome';
 import Game from './pages/Game';
 import CardSelect from './pages/CardSelect';
 import { useState } from 'react';
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 
 function App() {
 
@@ -25,6 +27,14 @@ function App() {
               path="/game"
               element={<Game numberCards={numberCards}/>}
               />
+            <Route
+              path="/signup"
+              element={<SignUp />}
+              />
+            <Route
+              path="/login"
+              element={<Login />}
+            />
           </Routes>
         </div>
       

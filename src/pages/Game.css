@@ -16,9 +16,10 @@
   display: flex;
   align-items: flex-start;
   border-radius: 100%;
+  margin-left: 5px;
+  padding-top: 5px;
   cursor: pointer;
 }
 #navbar {
-  border: 1px solid black;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(34,34,34,1) 35%, rgba(89,89,89,1) 100%)
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(55,55,55,.75) 35%, rgba(199,199,199,0) 100%)
 }
