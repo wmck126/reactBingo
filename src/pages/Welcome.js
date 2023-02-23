@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { onAuthStateChanged, signOut } from 'firebase/auth'
-import { auth } from '../firebase'
+import { signOut } from 'firebase/auth'
+import { auth, db} from '../firebase'
+import {doc, getDoc} from 'firebase/firestore'
 
-function Welcome() {
+
+function Welcome({user}) {
   const navigate = useNavigate()
-  const [userEmail, setUserEmail] = useState("")
+  console.log(user.uid)
+
+  const getUserdetails = async () => {
+    const docRef = doc(db, "users", user.uid)
+    const docSnap = await getDoc(docRef)
+    
+    if (docSnap.exists()) {
+      // console.log("Document data:", docSnap.data())
+      console.log("Data: ",docSnap.data())
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!")
+    }
+  }
 
   useEffect(() => {
-    onAuthStateChanged(auth,(user) => {
-      if (user){
-        const uid = user.uid
-        setUserEmail(user.email)
-        console.log('uid', uid)
-      } else {
-        console.log('user is signed out')
-      }
-    })
+    getUserdetails()
   }, [])
 
   const handleLogout = () => {
@@ -37,7 +44,7 @@ function Welcome() {
   return (
     <div>
       <h1>Bingo</h1>
-      <h3>Welcome {userEmail}</h3>
+      <h3>Welcome {user.email}</h3>
       <button onClick={() => handleClick()}>New game</button>
       <button onClick={handleLogout}>Logout</button>
     </div>

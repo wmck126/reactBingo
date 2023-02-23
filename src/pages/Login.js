@@ -8,6 +8,7 @@ function Login() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const onLogin = (e) => {
     e.preventDefault()
@@ -19,11 +20,26 @@ function Login() {
       console.log(user)
     })
     .catch((error) => {
-      const eCode = error.eCode
+      const eCode = error.code
       const eMessage = error.message
+      setError(eCode)
       console.log(eCode, eMessage)
     })
   }
+
+  function errorHandler(e) {
+    if (e==='auth/wrong-password'){
+      return 'Wrong password'
+    } else if (e==="auth/invalid-email"){
+      return 'Not a valid email address'
+    } else if (e==="auth/user-not-found"){
+      return "User not found"
+    } else if (e==="auth/too-many-requests"){
+      return ("Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. ")
+    }
+  }
+
+
 
   return (
     <div>
@@ -47,6 +63,7 @@ function Login() {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
+        <p>{errorHandler(error)}</p>
         <button onClick={onLogin}>Login</button>
       </form>
 
