@@ -3,6 +3,8 @@ import { auth } from "../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import React, { useState } from 'react'
 import './loginSignup.css'
+import { db } from "../firebase";
+import {doc, setDoc} from "firebase/firestore"
 
 
 function SignUp() {
@@ -19,8 +21,13 @@ function SignUp() {
         //Signed in
         const user = userCredential.user
         console.log(user)
-        navigate("/login")
+        setDoc(doc(db, 'users', userCredential.user.uid), {
+          email: email,
+          money: 500,
+          wins: 0
+        })
       })
+      .then(navigate("/"))
       .catch((error) => {
         const ecode = error.ecode
         const errorMessage = error.message 
