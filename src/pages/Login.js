@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import {auth} from '../firebase'
 import { NavLink, useNavigate } from 'react-router-dom'
+import './loginSignup.css'
 
 function Login() {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ function Login() {
     .then((userCred) => {
       //Signed in
       const user = userCred.user
-      navigate("/home")
+      navigate("/")
       console.log(user)
     })
     .catch((error) => {
@@ -26,7 +27,8 @@ function Login() {
 
   return (
     <div>
-      <form>
+      <h2>Login</h2>
+      <form className='form'>
         <label>Email</label>
         <input
           id="email-address"
