@@ -1,7 +1,94 @@
 .form{
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 65%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+}
+
+.inputs {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  background-color: whitesmoke;
+  outline: whitesmoke
+}
+
+.errors {
+  color: red
+}
+
+.su-link{
+  display: flex;
+  margin-top: 25%;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mail-icon {
+  width: 25px;
+  height: auto;
+}
+.lock-icon {
+  width: 25px;
+  height: auto;
+}
+
+.email-line {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  margin-right: 20px
+}
+
+.li-link {
+  display: flex;
+  margin-top: 10%;
+  text-align: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-h2 {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+.buttons {
+  width: 100%;
+  height: 30px;
+}
+
+.button-login {
+  width: 100%;
+  height: 30px;
+  margin-top: 25px;
+}
+
+.login-field {
+  text-align: left;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.login-header {
+  margin-top: 10%
 }

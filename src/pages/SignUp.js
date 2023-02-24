@@ -56,46 +56,50 @@ function SignUp({loggedIn}) {
 
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Sign up</h2>
       <form className='form'>
       <label>Username</label>
         <input 
+          className='inputs'
           type="text" 
           id="username-su"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
-          placeholder="Username"
+          placeholder="Type your username"
           />
-        <label>Email</label>
+        <label className='login-h2'>Email</label>
         <input 
+          className='inputs'
           type="email" 
           id="email-su"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          placeholder="Email address"
+          placeholder="Type your email"
           />
-        <label>Password</label>
+        <label className='login-h2'>Password</label>
         <input 
+          className='inputs'
           type="password" 
           id="pword-su"
           value={password}
           label="Create password"
           onChange={(e) => setPassword(e.target.value)}
           required
-          placeholder="Password"
+          placeholder="Type a password"
           />
-          <p>{errors(error)}</p>
+          <p className="errors">{errors(error)}</p>
           <button
+            className="buttons"
             type="submit"
             onClick={onSubmit}
             >
               Sign up
           </button>
       </form>
-      <p>
+      <p className='li-link'>
         Already have an account?{' '}
         <NavLink to="/login">
           Sign in
