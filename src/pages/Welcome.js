@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth, db} from '../firebase'
 import {doc, getDoc} from 'firebase/firestore'
 
 
-function Welcome({user, setLoggedIn}) {
+function Welcome({user, setLoggedIn, setUserData, userData}) {
   const navigate = useNavigate()
-  const [userData, setUserData] = useState([])
+  
 
+  //get users info
   const getUserdetails = async () => {
     const docRef = doc(db, "users", user.uid)
     const docSnap = await getDoc(docRef)
@@ -45,7 +46,7 @@ function Welcome({user, setLoggedIn}) {
   return (
     <div>
       <h1>Bingo</h1>
-      <h3>Welcome {user.email}</h3>
+      <h3>Welcome {userData.username}</h3>
       <h4>You currently have {userData.wins} wins</h4>
       <h4>${userData.money}</h4>
       <button onClick={() => handleClick()}>New game</button>

@@ -23,3 +23,23 @@
 #navbar {
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(55,55,55,.75) 35%, rgba(199,199,199,0) 100%)
 }
+
+.card-select{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px
+}
+
+.card-select > button {
+  width: 100px;
+  justify-content: center;
+  margin-left: 47.5%;
+}
+
+.card-select > select {
+  width: 100px;
+  justify-content: center;
+  margin-left: 47.5%;
+  text-align: center;
+}

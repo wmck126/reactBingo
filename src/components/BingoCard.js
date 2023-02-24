@@ -1,12 +1,16 @@
 import React from 'react'
+import { updateDoc, doc } from 'firebase/firestore'
+import { db } from '../firebase'
+import { useNavigate } from 'react-router-dom'
 import "./BingoCard.css"
 
-function BingoCard({numbersDrawn}) {
+function BingoCard({numbersDrawn, user, userData}) {
   const Barr = []
   const Iarr = []
   const Narr = []
   const Garr = []
   const Oarr = []
+  const navigate = useNavigate()
 
   const winners = [
     ['b0', 'b1', 'b2', 'b3', 'b4'],
@@ -85,9 +89,19 @@ function BingoCard({numbersDrawn}) {
     }
   }
 
+  const updateMoney = async () => {
+    const docRef = doc(db, "users", user.uid)
+    await updateDoc(docRef, {
+      money: (userData.money + 100),
+      wins: (userData.wins + 1)
+    })
+  }
+
   function isAWinner(){
     if (isCorrectNumbers() === true && declareBingo() === true){
-      alert('Congrats you win!!')
+      alert('Congrats you win $100!!')
+      updateMoney()
+      navigate("/")
     } else {
       alert('Sorry not a valid bingo')
     }
