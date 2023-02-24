@@ -1,39 +1,37 @@
 import './App.css';
-import {Routes, Route } from 'react-router-dom';
+import {Routes, Route, Navigate } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import Game from './pages/Game';
 import CardSelect from './pages/CardSelect';
 import { useEffect, useState } from 'react';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import {db} from './firebase'
-import {collection, doc, getDocs} from 'firebase/firestore'
 import { UserContext } from './components/Context';
-import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
 
   const [numberCards, setNumberCards] = useState(5)
   const [user, setUser] = useState(null)
-  const usersCollectionRef = collection(db, "users")
+  const [loggedIn, setLoggedIn] = useState(false)
   const navigate = useNavigate()
-
 
   useEffect(() => {
     onAuthStateChanged(auth,(user) => {
       if (user){
-        const uid = user.uid
         setUser(user)
-        console.log('user', user)
+        setLoggedIn(true)
       } else {
-        console.log('user is signed out')
+        navigate("/login")
+        setUser(null)
+        setLoggedIn(false)
       }
     })
   }, [])
 
-  if (!user) return (<Login />)
+
   
   return (
         <div className="App">
@@ -42,7 +40,7 @@ function App() {
               <Route 
                 path="/" 
                 exact
-                element={<Welcome user={user} />}
+                element={<Welcome user={user} setLoggedIn={setLoggedIn}/>}
               />
               <Route 
                 path="/bingoCard"
@@ -54,7 +52,7 @@ function App() {
                 />
               <Route
                 path="/signup"
-                element={<SignUp />}
+                element={<SignUp loggedIn={loggedIn}/>}
                 />
               <Route
                 path="/login"
