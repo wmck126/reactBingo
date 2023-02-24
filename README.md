@@ -14,11 +14,17 @@
 
 ## Stretch goals
 - Add back end
-  - User login
-  - Keep track of users winnings
-  - Create mechanic of "buying" cards and game payout
+  ~~ User login ~~
+  ~~ Keep track of users winnings ~~
+  ~~ Create mechanic of "buying" cards and game payout ~~
+- Deploy app
+- Add NPC and create a pot
+  - Based off of easy (low number of npc, low payout), medium (med # npc, med payout), high (high # npc, high payout)
+- If user is broke, add way to get them back into the game? Maybe borrow from the banker or luck based game (guess 1 - 10)
+  - Rock Paper Scissors, or Guess suit of card mini game
+  - have ability to do a side bet during bingo (what letter for x2, what number for x10, etc etc)
 
 
 ## Bugs
-~~ - Draw button causes bingo card to refresh numbers ~~
+
 
