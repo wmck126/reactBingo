@@ -25,6 +25,7 @@ function Welcome({user, setLoggedIn, setUserData, userData}) {
 
   useEffect(() => {
     getUserdetails()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleLogout = () => {
