@@ -76,9 +76,9 @@ function App() {
                 onClick={() => handleReturnToHome()}
               />
               <ul className="dropdown">
-                <li className='username-nav'><a className='dropdown' href='#'>{userData.username}</a>
+                <li className='username-nav'><button className='dropdown' >{userData.username}</button>
                   <ul>
-                    <li onClick={handleLogout}><a href='#'>Logout</a></li>
+                    <li onClick={handleLogout}><button href='#'>Logout</button></li>
                   </ul>
                   </li>
               </ul>

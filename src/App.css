@@ -70,8 +70,9 @@ nav li {
 	padding: 0;
 	position: relative;
 }
-nav a {
+nav button {
 	color: white;
+  border: none;
 	display: block;
 	font: normal 13px/50px Arial, Helvetica, sans-serif;
 	padding: 0 25px;
@@ -87,7 +88,7 @@ nav .dropdown {
 	background:url('./dropdown.png') no-repeat right center;
   background-size: 7px 5px;
 }
-nav li:hover a {
+nav li:hover button {
 	background: rgb(235, 160, 157);
 	color:#FFF;
 }
@@ -115,7 +116,7 @@ nav li ul li {
 	float: none;
 	width: 100%;
 }
-nav li ul a:hover {
+nav li ul button:hover {
 	background: #bbb;
 }
 /* Clearfix */

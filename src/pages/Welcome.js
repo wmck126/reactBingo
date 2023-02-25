@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { auth, db} from '../firebase'
+import { db} from '../firebase'
 import {doc, getDoc} from 'firebase/firestore'
 import './welcome.css'
 
