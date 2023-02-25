@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import { UserContext } from './components/Context';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
+import { signOut } from 'firebase/auth'
 
 function App() {
 
@@ -36,6 +37,16 @@ function App() {
     navigate('/')
   }
 
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      navigate("/login")
+      setLoggedIn(false)
+      console.log("Signed out successfully")
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
   if (!user) return(
     <Routes>
       <Route 
@@ -57,14 +68,21 @@ function App() {
   return (
         <div className="App">
           <UserContext.Provider value={user}>
-            <div id="navbar">
+            <nav id="navbar">
               <img 
                 id="bingoLogo" 
                 src='https://img.freepik.com/free-vector/bingo-neon-lettering-explosion_1262-20711.jpg' 
                 alt="bingoLogo"
                 onClick={() => handleReturnToHome()}
               />
-            </div>
+              <ul className="dropdown">
+                <li className='username-nav'><a className='dropdown' href='#'>{userData.username}</a>
+                  <ul>
+                    <li onClick={handleLogout}><a href='#'>Logout</a></li>
+                  </ul>
+                  </li>
+              </ul>
+            </nav>
             <Routes>
               <Route 
                 path="/" 

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signOut } from 'firebase/auth'
 import { auth, db} from '../firebase'
 import {doc, getDoc} from 'firebase/firestore'
+import './welcome.css'
 
 
 function Welcome({user, setLoggedIn, setUserData, userData}) {
@@ -28,15 +28,7 @@ function Welcome({user, setLoggedIn, setUserData, userData}) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const handleLogout = () => {
-    signOut(auth).then(() => {
-      navigate("/login")
-      setLoggedIn(false)
-      console.log("Signed out successfully")
-    }).catch((error) => {
-      console.log(error)
-    })
-  }
+  
 
   function handleClick() {
     return (
@@ -45,13 +37,11 @@ function Welcome({user, setLoggedIn, setUserData, userData}) {
   }
   
   return (
-    <div>
-      <h1>Bingo</h1>
-      <h3>Welcome {userData.username}</h3>
+    <div className='welcome-screen'>
+      <h3>Welcome to Bingo! Click New Game to start a game</h3>
       <h4>You currently have {userData.wins} wins</h4>
-      <h4>${userData.money}</h4>
-      <button onClick={() => handleClick()}>New game</button>
-      <button onClick={handleLogout}>Logout</button>
+      <h4>Your wallet: ${userData.money}</h4>
+      <button onClick={() => handleClick()} className="new-game-btn">New game</button>
     </div>
   )
 }

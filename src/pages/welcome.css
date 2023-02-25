@@ -1,0 +1,30 @@
+.welcome-screen {
+  margin-top: 10%
+}
+
+.new-game-btn {
+  width: 15%;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(349deg, rgba(34,122,170,1) 0%, rgba(151,89,160,1) 56%, rgba(235,160,157,1) 100%);
+  -webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+.new-game-btn:hover {
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
