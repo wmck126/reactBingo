@@ -92,3 +92,9 @@ input:focus::placeholder {
 .login-header {
   margin-top: 10%
 }
+
+.headline{
+  text-align: center;
+  margin-top: 50px;
+  text-shadow: 6px 4px 11px rgba(0,0,0,0.4);
+}

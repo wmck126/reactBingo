@@ -45,8 +45,10 @@ function Login() {
 
 
   return (
+    <div>
+      <h1 className='headline'>Welcome to React Bingo!</h1>
     <div className="login-container">
-        <h1>Welcome to React Bingo!</h1>
+        
         <h2 className='login-header'>Login</h2>
         <div className='login-field'>
         <form className='form'>
@@ -88,6 +90,7 @@ function Login() {
           Sign up
         </NavLink>
       </p>
+    </div>
     </div>
   )
 }
