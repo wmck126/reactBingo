@@ -1,15 +1,16 @@
 import {useState, useEffect} from 'react'
 import './BingoDraw.css'
 
-function BingoDraw({numbersDrawn}) {
+function BingoDraw({numbersDrawn, currentDraw, setCurrentDraw}) {
   
   
-  const [currentDraw, setCurrentDraw] = useState("")
+  
   const [letterNumber, setLetterNumber] = useState ("")
 
 
   //random number selector
-  function randomDrawing(){
+  function randomDrawing(e){
+    e.preventDefault()
     const randNumber = Math.floor(Math.random() * (76 - 1) + 1)
     if(numbersDrawn.includes(randNumber) === true){
       randomDrawing()
@@ -90,7 +91,7 @@ function BingoDraw({numbersDrawn}) {
           ))}
         </div>
       </div>
-      <button type='button' onClick={() => randomDrawing()}>Draw a number!</button>
+      <button type='button' onClick={(e) => randomDrawing(e)}>Draw a number!</button>
     </div>
   )
 }
