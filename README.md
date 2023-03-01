@@ -27,6 +27,4 @@
 
 
 ## Bugs
-- Figure out why bingo boards are re-rendering when drawing a number
-  - Most likely because state is in parent
-  - BUT need to have state in parent for both user and bot cards
+
