@@ -43,57 +43,57 @@ function BotCard({numbersDrawn, currentDraw}) {
   randomlyAssignCards(Garr, 46, 61, 5)
   randomlyAssignCards(Oarr, 61, 76, 5)
 
-  useEffect(() => {
-    console.log(Barr)
-    console.log(currentDraw)
-    for(let i =0; i<Barr.length; i++){
-      if (currentDraw === Barr[i]){
-        console.log('Bot has it!')
-        let bID = `b${i}`
-        handleSelect(bID)
-      }
+  // useEffect(() => {
+  //   console.log(Barr)
+  //   console.log(currentDraw)
+  //   for(let i =0; i<Barr.length; i++){
+  //     if (currentDraw === Barr[i]){
+  //       console.log('Bot has it!')
+  //       let bID = `b${i}`
+  //       handleSelect(bID)
+  //     }
       
-    }
-    for(let i =0; i<Iarr.length; i++){
-      if (currentDraw === Iarr[i]){
-        console.log('Bot has it!')
-        let iID = `i${i}`
-        handleSelect(iID)
-      }
+  //   }
+  //   for(let i =0; i<Iarr.length; i++){
+  //     if (currentDraw === Iarr[i]){
+  //       console.log('Bot has it!')
+  //       let iID = `i${i}`
+  //       handleSelect(iID)
+  //     }
       
-    }
-    for(let i =0; i<Narr.length; i++){
-      if (currentDraw === Narr[i]){
-        console.log('Bot has it!')
-        let nID = `n${i}`
-        handleSelect(nID)
-      }
+  //   }
+  //   for(let i =0; i<Narr.length; i++){
+  //     if (currentDraw === Narr[i]){
+  //       console.log('Bot has it!')
+  //       let nID = `n${i}`
+  //       handleSelect(nID)
+  //     }
       
-    }
-    for(let i =0; i<Garr.length; i++){
-      if (currentDraw === Garr[i]){
-        console.log('Bot has it!')
-        let gID = `g${i}`
-        handleSelect(gID)
-      }
-    }
-    for(let i =0; i<Oarr.length; i++){
-      if (currentDraw === Oarr[i]){
-        console.log('Bot has it!')
-        let oID = `o${i}`
-        handleSelect(oID)
-      }
-    }
-  }, [currentDraw])
+  //   }
+  //   for(let i =0; i<Garr.length; i++){
+  //     if (currentDraw === Garr[i]){
+  //       console.log('Bot has it!')
+  //       let gID = `g${i}`
+  //       handleSelect(gID)
+  //     }
+  //   }
+  //   for(let i =0; i<Oarr.length; i++){
+  //     if (currentDraw === Oarr[i]){
+  //       console.log('Bot has it!')
+  //       let oID = `o${i}`
+  //       handleSelect(oID)
+  //     }
+  //   }
+  // }, [currentDraw])
 
-  function handleSelect(id) {
-    const selectedNumber = document.getElementById(id)
-    console.log(selectedNumber)
-    const style = selectedNumber.style
-    selected.push(selectedNumber)
-    style.backgroundColor = 'blue'
-    style.color = 'white'
-  }
+  // function handleSelect(id) {
+  //   const selectedNumber = document.getElementById(id)
+  //   console.log(selectedNumber)
+  //   const style = selectedNumber.style
+  //   selected.push(selectedNumber)
+  //   style.backgroundColor = 'blue'
+  //   style.color = 'white'
+  // }
 
 
 

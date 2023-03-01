@@ -1,0 +1,185 @@
+[33mcommit 04995ab6636174f49312129d1ec4f72f9fc76c1e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Tue Feb 28 22:19:01 2023 -0500
+
+    updated readme
+
+[33mcommit 14a173eeb1aff962e4ab550d6ebba8b1fdf6205d[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Mon Feb 27 22:56:58 2023 -0500
+
+    Added bot card
+
+[33mcommit 24708b8286019ba1021f603021976aa505aa8093[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Sat Feb 25 18:34:08 2023 -0500
+
+    added styling to button/navbar
+
+[33mcommit b32e8cbc82ba53de5de414ab493bde3b6a893224[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Sat Feb 25 18:29:31 2023 -0500
+
+    added styling to button/navbar
+
+[33mcommit c0a49273d21372558cab28e0ae218af2867acc0b[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Sat Feb 25 18:22:53 2023 -0500
+
+    added styling to button/navbar
+
+[33mcommit bb61c56752413754ad8c9cebc960782bc1b507b5[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 24 16:58:07 2023 -0500
+
+    styled login/signup
+
+[33mcommit d483750900430a247932c188611db5a73e5462dd[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 24 15:05:20 2023 -0500
+
+    fixed eslint warning
+
+[33mcommit 8030a803cf89b697e4a857702b29f483921bcbc2[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 24 13:06:32 2023 -0500
+
+    updated readme
+
+[33mcommit d1a94886978fc20667f889b1d5393931765813da[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 24 12:52:29 2023 -0500
+
+    added prize money and win counter
+
+[33mcommit 04e89322e86c9a41dc7d892844b6a9348b3ce39d[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 23 21:04:04 2023 -0500
+
+    Sign out fxn works
+
+[33mcommit 576fccc0c1ded98e3d5bcb2831f2ea655bd9939e[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 23 20:47:21 2023 -0500
+
+    Sign out fxn works
+
+[33mcommit 3950dfbae050aee02b6d699e38e9f790a82560c9[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 23 17:30:26 2023 -0500
+
+    Get operation successful
+
+[33mcommit dcf01bcee1685ab4377733b329eacc7657d4e472[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 23 16:09:20 2023 -0500
+
+    adding user data to db works
+
+[33mcommit 934e000063374edf4c8d00ee294f62373f622686[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 23 11:41:50 2023 -0500
+
+    login/signup/logout work properly
+
+[33mcommit a5ed50dbdf5609aa20a709761839c67fd93b23f6[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 23 10:34:48 2023 -0500
+
+    adding login/signup
+
+[33mcommit 68a0e3b541e2259a650c234ccb7b8d5c42ae7080[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Tue Feb 7 11:55:07 2023 -0500
+
+    added styling/card number
+
+[33mcommit f4081ae32f21d8f1fed8fd5c9580d060bd287131[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 3 22:21:40 2023 -0500
+
+    winning validations are complete
+
+[33mcommit 2fb28a2681d36f38c927122699ba1ff8b76f6813[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 3 17:27:38 2023 -0500
+
+    winning pattern validation complete
+
+[33mcommit ae6a86935051a9f50804a052df7ef4c14d754bc1[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Feb 3 16:05:35 2023 -0500
+
+    working on validation algo, almost there
+
+[33mcommit 74e2e549b90a164fc4b6db831645cadfc2d2a044[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 2 17:46:45 2023 -0500
+
+    working on bingo validation
+
+[33mcommit ee489fa5f0f4af32f7c95aa4d7f2f9fa67b71adc[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Feb 2 17:45:41 2023 -0500
+
+    working on winning validation
+
+[33mcommit be48ea908f75089fa2e51a52d1366e5ab67dee9f[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Wed Feb 1 17:14:12 2023 -0500
+
+    added styling/winning conds
+
+[33mcommit 12a13c64ee90718bc5ef03d41b642df3bdd27db9[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Jan 27 17:08:24 2023 -0500
+
+    updated readme
+
+[33mcommit 0e3d67e72c26db5835c29b3b106cc3f04fa93f41[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Jan 27 17:07:33 2023 -0500
+
+    functioning bingo game!
+
+[33mcommit e3eae8669818d67d4bd3786800c4fbe89f877235[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Jan 27 16:48:57 2023 -0500
+
+    added random selector for drawing
+
+[33mcommit 42cb5c99b99a2203445c8de0ec302b2e4b8094f0[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Jan 27 16:13:11 2023 -0500
+
+    added bingo drawing board
+
+[33mcommit b982dbe5e8b849291038bf613e6538361add601b[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Fri Jan 27 15:32:20 2023 -0500
+
+    bingo card changes color on click
+
+[33mcommit d66dcf3713a18626e9935ffc59356052f2f16f7e[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Jan 26 12:56:04 2023 -0500
+
+    Added goals/todo
+
+[33mcommit db7d7961b818cd53e595903b486981b9e5532aa2[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Jan 26 12:16:05 2023 -0500
+
+    made bingo card, adding styling
+
+[33mcommit 7a494cdabe56352a690a7ab6879b75b3e4c83185[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Jan 26 11:25:00 2023 -0500
+
+    Router setup
+
+[33mcommit df0d739c5eb46f8da915fb7dde5fbfe1f7eb72a2[m
+Author: Ward McKinley <wmck126@gmail.com>
+Date:   Thu Jan 26 11:18:43 2023 -0500
+
+    Initialize project using Create React App
