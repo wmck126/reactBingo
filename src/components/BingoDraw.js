@@ -1,16 +1,15 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import './BingoDraw.css'
 
-function BingoDraw({numbersDrawn, currentDraw, setCurrentDraw}) {
+function BingoDraw({numbersDrawn,setCurrentDraw}) {
   
   
   
   const [letterNumber, setLetterNumber] = useState ("")
-
+  
 
   //random number selector
-  function randomDrawing(e){
-    e.preventDefault()
+  function randomDrawing(){
     const randNumber = Math.floor(Math.random() * (76 - 1) + 1)
     if(numbersDrawn.includes(randNumber) === true){
       randomDrawing()
@@ -19,24 +18,20 @@ function BingoDraw({numbersDrawn, currentDraw, setCurrentDraw}) {
       setCurrentDraw(randNumber)
       document.getElementById(randNumber).style.backgroundColor = "blue"
       document.getElementById(randNumber).style.color = "white" 
+      //adds the current number+letter pair drawn at top of page
+      if (randNumber >= 1 && randNumber <= 15){
+        setLetterNumber('B' + randNumber)
+      } else if (randNumber >= 16 && randNumber <=30){
+        setLetterNumber('I' + randNumber)
+      } else if (randNumber >=31 && randNumber <=45){
+        setLetterNumber('N' + randNumber)
+      } else if (randNumber >=46 && randNumber <=60){
+        setLetterNumber('G' + randNumber)
+      } else if (randNumber >=61 && randNumber <=75){
+        setLetterNumber('O' + randNumber)
+      }
     }
   }
-
-  //adds the current number+letter pair drawn at top of page
-  useEffect(() => {
-    if (currentDraw >= 1 && currentDraw <= 15){
-      setLetterNumber('B' + currentDraw)
-    } else if (currentDraw >= 16 && currentDraw <=30){
-      setLetterNumber('I' + currentDraw)
-    } else if (currentDraw >=31 && currentDraw <=45){
-      setLetterNumber('N' + currentDraw)
-    } else if (currentDraw >=46 && currentDraw <=60){
-      setLetterNumber('G' + currentDraw)
-    } else if (currentDraw >=61 && currentDraw <=75){
-      setLetterNumber('O' + currentDraw)
-    }
-  }, [currentDraw])
-
 
   //sets numbers to each row
   function setRowNumbers(min, max){
@@ -91,7 +86,7 @@ function BingoDraw({numbersDrawn, currentDraw, setCurrentDraw}) {
           ))}
         </div>
       </div>
-      <button type='button' onClick={(e) => randomDrawing(e)}>Draw a number!</button>
+      <button type='button' onClick={() => randomDrawing()}>Draw a number!</button>
     </div>
   )
 }
