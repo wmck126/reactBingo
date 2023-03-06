@@ -32,3 +32,18 @@
 #letterN{
   margin-right: 9px
 }
+.botcards{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px
+}

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useState, useMemo, useEffect} from 'react'
 import './BingoDraw.css'
 import BingoCard from './BingoCard'
@@ -62,12 +63,13 @@ function BingoDraw({numberCards, user, userData}) {
     }, [key])
       
     const B = JSON.parse(localStorage.getItem(`savedB${key}`))
-    const I = JSON.parse(localStorage.getItem(`savedI${key}`))
-    const N = JSON.parse(localStorage.getItem(`savedN${key}`))
-    const G = JSON.parse(localStorage.getItem(`savedG${key}`))
-    const O = JSON.parse(localStorage.getItem(`savedO${key}`))
+      const I = JSON.parse(localStorage.getItem(`savedI${key}`))
+      const N = JSON.parse(localStorage.getItem(`savedN${key}`))
+      const G = JSON.parse(localStorage.getItem(`savedG${key}`))
+      const O = JSON.parse(localStorage.getItem(`savedO${key}`))
 
     useEffect(() => {
+      
       for(let i =0; i<B.length; i++){
         if (currentDraw === B[i]){
           let bID = `b${i}${key}`
@@ -224,7 +226,11 @@ function BingoDraw({numberCards, user, userData}) {
 
   return (
     <div id='gamespace'>
-    {bots}
+      
+      <h4 className='section-title'>Bots</h4>
+      <div className='botcards'>
+        {bots}
+      </div>
       <div id="container">
         <h2 id="currentDrawNumber">{letterNumber}</h2>
         <div id="bingo-list">
@@ -261,7 +267,10 @@ function BingoDraw({numberCards, user, userData}) {
         </div>
         <button type='button' onClick={() => randomDrawing()}>Draw a number!</button>
       </div>
+      
+      <h4 className='section-title'>Your Cards</h4>
       <div id="gameCards">
+      
           {rows}
       </div>
     </div>
