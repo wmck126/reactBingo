@@ -1,16 +1,13 @@
 /* eslint-disable */
 import {useState, useMemo, useEffect} from 'react'
 import './BingoDraw.css'
-import BingoCard from './BingoCard'
 import { useNavigate } from 'react-router-dom'
 
 
-function BingoDraw({numberCards, user, userData}) {
+function BingoDraw({ numbersDrawn, difficulty}) {
   const [currentDraw, setCurrentDraw] = useState(0)
   const [letterNumber, setLetterNumber] = useState ("")
-  const numbersDrawn = []
   const navigate = useNavigate()
-  let rows = []
   let bots =[]
 
   //creates bots to play against the user
@@ -155,8 +152,8 @@ function BingoDraw({numberCards, user, userData}) {
 
     return (
       <div id={key}>
-        <div id="game-card">
-          <div id="game-columns">
+        <div id="game-card-bot">
+          <div id="game-columns-bot">
           <div id="B-Column">
             <h2>B</h2>
             <p id={`b0${key}`}>{B[0]}</p>
@@ -203,12 +200,11 @@ function BingoDraw({numberCards, user, userData}) {
     )
   }
 
-  for(let i = 0; i<numberCards; i++){
-      rows.push(<BingoCard numbersDrawn={numbersDrawn} user={user} userData={userData} key={i}/>)
-  }
-
-  for(let i = 0; i<3; i++){
-    bots.push(BotCard(currentDraw, i))
+  
+  //how many bots? 
+  for(let i = 0; i<difficulty; i++){
+    let keys = `id${i}`
+    bots.push(BotCard(currentDraw, keys))
   } 
   
 
@@ -301,10 +297,7 @@ function BingoDraw({numberCards, user, userData}) {
       </div>
       
       <h4 className='section-title'>Your Cards</h4>
-      <div id="gameCards">
       
-          {rows}
-      </div>
     </div>
   )
 }

@@ -33,17 +33,31 @@
   margin-right: 9px
 }
 .botcards{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5, .1fr);
   gap: 10px;
-  padding-bottom: 5%;
-  align-items: center;
   justify-content: center;
 }
 
+#game-card-bot{
+  border: 1px solid black;
+  width:220px;
+  justify-content: center;
+  text-align: center;
+  font-size: x-small;
+}
 .section-title {
   text-align: center;
   align-items: center;
   justify-content: center;
   margin-top: 100px
+}
+
+#game-columns-bot {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  grid-template-rows: repeat(5, 40px);
+  width: 100px;
+  height: auto;
+  margin-left: 10px;
 }

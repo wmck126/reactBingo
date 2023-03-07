@@ -64,6 +64,7 @@ function BingoCard({numbersDrawn, user, userData}) {
 
   function declareBingo() {
     //check if selected length is less than 5
+    console.log(selected)
     if (selected.length < 5){
       return false
     }

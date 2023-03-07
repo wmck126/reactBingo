@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
   const [userData, setUserData] = useState([])
+  const [difficulty, setDifficulty] = useState(0)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -91,11 +92,11 @@ function App() {
               />
               <Route 
                 path="/bingoCard"
-                element={<CardSelect user={user} setNumberCards={setNumberCards} userData={userData}/>}
+                element={<CardSelect user={user} setNumberCards={setNumberCards} userData={userData} setDifficulty={setDifficulty}/>}
               />
               <Route 
                 path="/game"
-                element={<Game numberCards={numberCards} user={user} userData={userData}/>}
+                element={<Game numberCards={numberCards} user={user} userData={userData} difficulty={difficulty}/>}
                 />
               <Route
                 path="/signup"

@@ -4,7 +4,7 @@ import { updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import "./Game.css"
 
-function CardSelect({setNumberCards, userData, user}) {
+function CardSelect({setNumberCards, userData, user, setDifficulty}) {
   const navigate = useNavigate()
   const [price, setPrice] = useState(0)
 
@@ -31,6 +31,19 @@ function CardSelect({setNumberCards, userData, user}) {
     updateMoney()
   }
 
+  function handleDifficulty(e) {
+    let diff = e.target.value
+    if (diff.includes("Easy")){
+      setDifficulty(3)
+    } else if (diff.includes("Medium")){
+      setDifficulty(6)
+    } else if (diff.includes("Hard")){
+      setDifficulty(9)
+    } else if (diff.includes("Insane")){
+      setDifficulty(20)
+    }
+  }
+
 
 
   return (
@@ -39,11 +52,21 @@ function CardSelect({setNumberCards, userData, user}) {
       <label>Current selection is ${price}</label>
       <label>You have ${userData.money} in the bank</label>
       <select onChange={(e) => handleChange(e)}>
-        <option selected>1</option>
+        <option selected>Please select an option</option>
+        <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
+      </select>
+      <label>What difficulty would you like to play?</label>
+      <label>Harder difficulty means a higher jackpot!</label>
+      <select onChange={(e) => handleDifficulty(e)}>
+        <option selected>Select a difficulty</option>
+        <option>Easy (3 bots)</option>
+        <option>Medium (6 bots)</option>
+        <option>Hard (9 bots)</option>
+        <option>Insane (20 bots)</option>
       </select>
       <button onClick={() => handleClick()}>Confirm</button>
       
