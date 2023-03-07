@@ -2,35 +2,38 @@
 import {useState, useMemo, useEffect} from 'react'
 import './BingoDraw.css'
 import BingoCard from './BingoCard'
+import { useNavigate } from 'react-router-dom'
 
 
 function BingoDraw({numberCards, user, userData}) {
   const [currentDraw, setCurrentDraw] = useState(0)
   const [letterNumber, setLetterNumber] = useState ("")
+  const numbersDrawn = []
+  const navigate = useNavigate()
   let rows = []
   let bots =[]
-  const numbersDrawn = []
 
-//Testing botcard within the bingodraw to prevent rerendering
+  //creates bots to play against the user
   function BotCard(currentDraw, key) {
     
+    const [selected, setSelected] = useState([`n2${key}`])
 
-    // const winners = [
-    //   ['b0', 'b1', 'b2', 'b3', 'b4'],
-    //   ['i0', 'i1', 'i2', 'i3', 'i4'],
-    //   ['n0', 'n1', 'n2', 'n3', 'n4'],
-    //   ['g0', 'g1', 'g2', 'g3', 'g4'],
-    //   ['o0', 'o1', 'o2', 'o3', 'o4'],
-    //   ['b0', 'i0', 'n0', 'g0', 'o0'],
-    //   ['b1', 'i1', 'n1', 'g1', 'o1'],
-    //   ['b2', 'i2', 'n2', 'g2', 'o2'],
-    //   ['b3', 'g3', 'i3', 'n3', 'o3'],
-    //   ['b4', 'g4', 'i4', 'n4', 'o4'],
-    //   ['b0', 'g3', 'i1', 'n2', 'o4'],
-    //   ['b4', 'g1', 'i3', 'n2', 'o0']
-    // ]
+    const winners = [
+      [`b0${key}`, `b1${key}`, `b2${key}`, `b3${key}`, `b4${key}`],
+      [`i0${key}`, `i1${key}`, `i2${key}`, `i3${key}`, `i4${key}`],
+      [`n0${key}`, `n1${key}`, `n2${key}`, `n3${key}`, `n4${key}`],
+      [`g0${key}`, `g1${key}`, `g2${key}`, `g3${key}`, `g4${key}`],
+      [`o0${key}`, `o1${key}`, `o2${key}`, `o3${key}`, `o4${key}`],
+      [`b0${key}`, `i0${key}`, `n0${key}`, `g0${key}`, `o0${key}`],
+      [`b1${key}`, `i1${key}`, `n1${key}`, `g1${key}`, `o1${key}`],
+      [`b2${key}`, `i2${key}`, `n2${key}`, `g2${key}`, `o2${key}`],
+      [`b3${key}`, `i3${key}`, `n3${key}`, `g3${key}`, `o3${key}`],
+      [`b4${key}`, `i4${key}`, `n4${key}`, `g4${key}`, `o4${key}`],
+      [`b0${key}`, `g3${key}`, `i1${key}`, `n2${key}`, `o4${key}`],
+      [`b4${key}`, `g1${key}`, `i3${key}`, `n2${key}`, `o0${key}`]
+    ]
     
-    const selected = ['n2']
+    
 
     //randomly assigned numbers to each column on the card w/o repeating
     function randomlyAssignCards(arr, max, min, iter){
@@ -52,7 +55,7 @@ function BingoDraw({numberCards, user, userData}) {
       const Oarr = []
       randomlyAssignCards(Barr, 1, 16, 4)
       randomlyAssignCards(Iarr, 16, 31, 4)
-      randomlyAssignCards(Narr, 31, 46, 4)
+      randomlyAssignCards(Narr, 31, 46, 3)
       randomlyAssignCards(Garr, 46, 61, 4)
       randomlyAssignCards(Oarr, 61, 76, 4)
       localStorage.setItem(`savedB${key}`, JSON.stringify(Barr))
@@ -69,57 +72,85 @@ function BingoDraw({numberCards, user, userData}) {
       const O = JSON.parse(localStorage.getItem(`savedO${key}`))
 
     useEffect(() => {
-      
       for(let i =0; i<B.length; i++){
         if (currentDraw === B[i]){
           let bID = `b${i}${key}`
-          console.log('Bot has it!', bID)
           handleSelect(bID)
         }
-        
       }
       for(let i =0; i<I.length; i++){
         if (currentDraw === I[i]){
           let iID = `i${i}${key}`
-          console.log('Bot has it!', iID)
           handleSelect(iID)
         }
-        
       }
       for(let i =0; i<N.length; i++){
         if (currentDraw === N[i]){
           let nID = `n${i}${key}`
-          console.log('Bot has it!', nID)
           handleSelect(nID)
         }
-        
       }
       for(let i =0; i<G.length; i++){
         if (currentDraw === G[i]){
           let gID = `g${i}${key}`
-          console.log('Bot has it!', gID)
           handleSelect(gID)
         }
       }
       for(let i =0; i<O.length; i++){
         if (currentDraw === O[i]){
-          
           let oID = `o${i}${key}`
-          console.log('Bot has it!', oID)
           handleSelect(oID)
         }
       }
-      console.log(selected)
     }, [currentDraw])
 
     function handleSelect(id) {
       const selectedNumber = document.getElementById(id)
-      console.log(selectedNumber)
       const style = selectedNumber.style
-      selected.push(id)
+      setSelected([...selected, id])
       style.backgroundColor = 'blue'
       style.color = 'white'
     }
+
+    function declareBingo() {
+      //check if selected length is less than 5
+      if (selected.length < 5){
+        return false
+      }
+      for (let i=0; i<winners.length; i++){
+        if (winners[i].every(elem => selected.includes(elem))){
+          return true
+        } else if(i === winners.length - 1){
+          return false
+        } 
+      }
+    }
+
+    function isCorrectNumbers() {
+      const userNumbers = []
+      selected.forEach(elem => userNumbers.push(parseInt(document.getElementById(elem).textContent)))
+      const newArray = userNumbers.filter(function (value) {
+        return !Number.isNaN(value);
+      })
+      if (newArray.every(elem => numbersDrawn.includes(elem))){
+        return true
+      } else {
+        return false
+      }
+    }
+
+    function isAWinner(){
+      if (isCorrectNumbers() === true && declareBingo() === true){
+        alert("Bot had bingo, better luck next time!")
+        navigate("/")
+      } else {
+        return
+      }
+    }
+
+    useEffect(() => {
+      isAWinner()
+    }, [selected])
 
 
     return (
@@ -146,7 +177,7 @@ function BingoDraw({numberCards, user, userData}) {
             <h2>N</h2>
             <p id={`n0${key}`}>{N[0]}</p>
             <p id={`n1${key}`}>{N[1]}</p>
-            <p id='n2' style={{backgroundColor:'blue' ,color:'white'}}>Free Space</p>
+            <p id={`n2${key}`} style={{backgroundColor:'blue' ,color:'white'}}>Free Space</p>
             <p id={`n3${key}`}>{N[2]}</p>
             <p id={`n4${key}`}>{N[3]}</p>
           </div>
@@ -188,6 +219,7 @@ function BingoDraw({numberCards, user, userData}) {
       randomDrawing()
     } else {
       numbersDrawn.push(randNumber)
+      console.log(numbersDrawn)
       setCurrentDraw(randNumber)
       document.getElementById(randNumber).style.backgroundColor = "blue"
       document.getElementById(randNumber).style.color = "white" 
