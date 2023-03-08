@@ -1,6 +1,6 @@
 #bingo-list {
   width: 70%;
-  margin-left: 15%;
+  margin-left: 5%;
   margin-right: 15%; 
 }
 
@@ -18,7 +18,6 @@
   flex: 1;
   justify-content: center;
   cursor: pointer;
-  border: 1px solid black;
 }
 
 .number-selected {
@@ -26,7 +25,6 @@
   flex-direction: column;
   flex: 1;
   justify-content: center;
-  border-radius: 50%;
   background-color: blue;
   color: white;
   row-gap: 5px;
@@ -50,7 +48,6 @@
   display: grid;
   grid-template-columns: repeat(3, .1fr);
   gap: 10px;
-  border: 1px solid black;
   justify-content: center;
 }
 
@@ -58,21 +55,18 @@
   display: grid;
   grid-template-columns: repeat(3, .1fr);
   gap: 10px;
-  border: 1px solid black;
   justify-content: center;
 }
 .botcards10{
   display: grid;
   grid-template-columns: repeat(5, .1fr);
   gap: 10px;
-  border: 1px solid black;
   justify-content: center;
 }
 .botcards20{
   display: grid;
   grid-template-columns: repeat(5, .1fr);
   gap: 10px;
-  border: 1px solid black;
   justify-content: center;
 }
 
@@ -87,7 +81,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-top: 100px
+
 }
 
 #game-columns-bot {
@@ -97,4 +91,51 @@
   width: 100px;
   height: auto;
   margin-left: 10px;
+}
+
+#container {
+  margin-top: 75px;
+  margin-bottom: 75px
+}
+
+.draw-bttn{
+  border: 0;
+  border-radius: 5px;
+  cursor:pointer;
+  padding: 20px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(349deg, rgba(34,122,170,1) 0%, rgba(151,89,160,1) 56%, rgba(235,160,157,1) 100%);
+  -webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+.draw-bttn:hover{
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+.draw-bttn:active{
+  transform: translateY(4px);
+  box-shadow: 10px 6px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 6 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 6px 30px 0px rgba(0,0,0,0.75);
+}
+
+#drawArea{
+  display: flex;
+  align-items: center;
+}
+
+#currentDrawNumber{
+  margin-left: 5%;
 }

@@ -255,12 +255,13 @@ function BingoDraw({ numbersDrawn, difficulty}) {
   return (
     <div id='gamespace'>
       
-      <h4 className='section-title'>Bots</h4>
+      <h3 className='section-title'>Bots</h3>
       <div className={`botcards${difficulty}`}>
         {bots}
       </div>
       <div id="container">
-        <h2 id="currentDrawNumber">{letterNumber}</h2>
+        <div id='drawArea'>
+        <h1 id="currentDrawNumber">Current Draw: {letterNumber}</h1>
         <div id="bingo-list">
           <div id="Row">
             <h2  id="letter">B</h2>
@@ -292,11 +293,12 @@ function BingoDraw({ numbersDrawn, difficulty}) {
               <p className='number' id={x}>{x}</p>
             ))}
           </div>
+          </div>
         </div>
-        <button type='button' onClick={() => randomDrawing()}>Draw a number!</button>
+        <button className='draw-bttn' type='button' onClick={() => randomDrawing()}>Draw a number!</button>
       </div>
       
-      <h4 className='section-title'>Your Cards</h4>
+      <h3 className='section-title'>Your Cards</h3>
       
     </div>
   )

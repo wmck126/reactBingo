@@ -57,7 +57,7 @@ function SignUp({loggedIn}) {
 
   return (
     <div>
-      <h1 className='headline'>Welcome to React Bingo!</h1>
+      <h1 className='headline'>React Bingo</h1>
     <div className="login-container">
       <h2>Sign up</h2>
       <form className='form'>

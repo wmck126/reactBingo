@@ -6,10 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('background.jpg');
-  background-size: cover;
+  background-size:5500px;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 100%
+  
 }
 
 html {

@@ -28,3 +28,10 @@
 	-o-transition: all .25s ease;
 	transition: all .25s ease;
 }
+
+.new-game-btn:active {
+  transform: translateY(4px);
+  box-shadow: 10px 6px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 6 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 6px 30px 0px rgba(0,0,0,0.75);
+}

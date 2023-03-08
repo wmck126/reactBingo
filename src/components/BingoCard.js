@@ -49,14 +49,13 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
 
   //highlights each number on the card and puts them in an array
   function handleClick(id) {
-    const style = id.target.style
     if (selected.includes(id.target.id)){
       let index = selected.indexOf(id.target.id)
       selected.splice(index, 1)
-      id.target.className = ''
+      id.target.className = 'number-card'
     } else {
       selected.push(id.target.id)
-      id.target.className = 'number-selected'
+      id.target.className = 'number-card-selected'
     }
   }
 
@@ -112,7 +111,7 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
   return (
     <div id="game-card">
       <div id="game-columns">
-      <div id="B-Column">
+      <div id="Column">
         <h2>B</h2>
         <p id='b0'className='number-card'onClick={(id) => handleClick(id)}>{Barr[0]}</p>
         <p id='b1'className='number-card' onClick={(id) => handleClick(id)}>{Barr[1]}</p>
@@ -120,7 +119,7 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
         <p id='b3'className='number-card' onClick={(id) => handleClick(id)}>{Barr[3]}</p>
         <p id='b4'className='number-card' onClick={(id) => handleClick(id)}>{Barr[4]}</p>
       </div>
-      <div id="I-Column">
+      <div id="Column">
         <h2>I</h2>
         <p id='i0'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[0]}</p>
         <p id='i1'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[1]}</p>
@@ -128,7 +127,7 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
         <p id='i3'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[3]}</p>
         <p id='i4'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[4]}</p>
       </div>
-      <div id="N-Column">
+      <div id="Column">
         <h2>N</h2>
         <p id='n0'className='number-card' onClick={(id) => handleClick(id)}>{Narr[0]}</p>
         <p id='n1'className='number-card' onClick={(id) => handleClick(id)}>{Narr[1]}</p>
@@ -136,7 +135,7 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
         <p id='n3'className='number-card' onClick={(id) => handleClick(id)}>{Narr[2]}</p>
         <p id='n4'className='number-card' onClick={(id) => handleClick(id)}>{Narr[3]}</p>
       </div>
-      <div id="G-Column">
+      <div id="Column">
       <h2>G</h2>
         <p id='g0'className='number-card' onClick={(id) => handleClick(id)}>{Garr[0]}</p>
         <p id='g1'className='number-card' onClick={(id) => handleClick(id)}>{Garr[1]}</p>
@@ -144,7 +143,7 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
         <p id='g3'className='number-card' onClick={(id) => handleClick(id)}>{Garr[3]}</p>
         <p id='g4'className='number-card' onClick={(id) => handleClick(id)}>{Garr[4]}</p>
       </div>
-      <div id="O-Column">
+      <div id="Column">
       <h2>O</h2>
         <p id='o0'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[0]}</p>
         <p id='o1'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[1]}</p>

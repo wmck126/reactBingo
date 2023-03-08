@@ -46,7 +46,7 @@ function Login() {
 
   return (
     <div>
-      <h1 className='headline'>Welcome to React Bingo!</h1>
+      <h1 className='headline'>React Bingo</h1>
     <div className="login-container">
         
         <h2 className='login-header'>Login</h2>

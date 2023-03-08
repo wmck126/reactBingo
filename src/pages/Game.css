@@ -6,28 +6,61 @@
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: -12px 0 0 -12px;
   padding-bottom: 50px;
 }
-
-
 
 .card-select{
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  gap: 10px
+  position: fixed;
+  width: 30%;
+  gap: 10px;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
 
 .card-select > button {
   width: 100px;
   justify-content: center;
-  margin-left: 47.5%;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(349deg, rgba(34,122,170,1) 0%, rgba(151,89,160,1) 56%, rgba(235,160,157,1) 100%);
+  -webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+.card-select > button:hover {
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+  -webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+
+.card-select > button:active {
+  transform: translateY(4px);
+  box-shadow: 10px 6px 30px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 6 30px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 6px 30px 0px rgba(0,0,0,0.75);
 }
 
 .card-select > select {
   width: 100px;
   justify-content: center;
-  margin-left: 47.5%;
   text-align: center;
+  width: 250px;
+  padding: 5px;
 }
