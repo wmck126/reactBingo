@@ -102,11 +102,9 @@ function BingoDraw({ numbersDrawn, difficulty}) {
     }, [currentDraw])
 
     function handleSelect(id) {
-      const selectedNumber = document.getElementById(id)
-      const style = selectedNumber.style
       setSelected([...selected, id])
-      style.backgroundColor = 'blue'
-      style.color = 'white'
+      let elemId = document.getElementById(id)
+      elemId.className = 'number-selected'
     }
 
     function declareBingo() {
@@ -149,6 +147,8 @@ function BingoDraw({ numbersDrawn, difficulty}) {
       isAWinner()
     }, [selected])
 
+    
+
 
     return (
       <div id={key}>
@@ -174,7 +174,7 @@ function BingoDraw({ numbersDrawn, difficulty}) {
             <h2>N</h2>
             <p id={`n0${key}`}>{N[0]}</p>
             <p id={`n1${key}`}>{N[1]}</p>
-            <p id={`n2${key}`} style={{backgroundColor:'blue' ,color:'white'}}>Free Space</p>
+            <p id={`n2${key}`} className="number-selected">Free Space</p>
             <p id={`n3${key}`}>{N[2]}</p>
             <p id={`n4${key}`}>{N[3]}</p>
           </div>
@@ -215,10 +215,9 @@ function BingoDraw({ numbersDrawn, difficulty}) {
       randomDrawing()
     } else {
       numbersDrawn.push(randNumber)
-      console.log(numbersDrawn)
       setCurrentDraw(randNumber)
-      document.getElementById(randNumber).style.backgroundColor = "blue"
-      document.getElementById(randNumber).style.color = "white" 
+      let elemId = document.getElementById(randNumber)
+      elemId.className = 'number-selected'
       //adds the current number+letter pair drawn at top of page
       if (randNumber >= 1 && randNumber <= 15){
         setLetterNumber('B' + randNumber)
@@ -250,13 +249,14 @@ function BingoDraw({ numbersDrawn, difficulty}) {
   const gRow = setRowNumbers(46, 60)
   const oRow = setRowNumbers(61, 75)
 
+
   
 
   return (
     <div id='gamespace'>
       
       <h4 className='section-title'>Bots</h4>
-      <div className='botcards'>
+      <div className={`botcards${difficulty}`}>
         {bots}
       </div>
       <div id="container">

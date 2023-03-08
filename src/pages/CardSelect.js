@@ -4,7 +4,7 @@ import { updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import "./Game.css"
 
-function CardSelect({setNumberCards, userData, user, setDifficulty}) {
+function CardSelect({setNumberCards, userData, user, setDifficulty, setPot}) {
   const navigate = useNavigate()
   const [price, setPrice] = useState(0)
 
@@ -34,12 +34,16 @@ function CardSelect({setNumberCards, userData, user, setDifficulty}) {
   function handleDifficulty(e) {
     let diff = e.target.value
     if (diff.includes("Easy")){
+      setPot(45)
       setDifficulty(3)
     } else if (diff.includes("Medium")){
+      setPot(90)
       setDifficulty(6)
     } else if (diff.includes("Hard")){
-      setDifficulty(9)
+      setPot(150)
+      setDifficulty(10)
     } else if (diff.includes("Insane")){
+      setPot(300)
       setDifficulty(20)
     }
   }
@@ -65,7 +69,7 @@ function CardSelect({setNumberCards, userData, user, setDifficulty}) {
         <option selected>Select a difficulty</option>
         <option>Easy (3 bots)</option>
         <option>Medium (6 bots)</option>
-        <option>Hard (9 bots)</option>
+        <option>Hard (10 bots)</option>
         <option>Insane (20 bots)</option>
       </select>
       <button onClick={() => handleClick()}>Confirm</button>

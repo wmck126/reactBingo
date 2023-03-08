@@ -4,7 +4,7 @@ import { db } from '../firebase'
 import { useNavigate } from 'react-router-dom'
 import "./BingoCard.css"
 
-function BingoCard({numbersDrawn, user, userData}) {
+function BingoCard({numbersDrawn, user, userData, pot}) {
   const Barr = []
   const Iarr = []
   const Narr = []
@@ -53,12 +53,10 @@ function BingoCard({numbersDrawn, user, userData}) {
     if (selected.includes(id.target.id)){
       let index = selected.indexOf(id.target.id)
       selected.splice(index, 1)
-      style.backgroundColor = ''
-      style.color = 'black'
+      id.target.className = ''
     } else {
       selected.push(id.target.id)
-      style.backgroundColor = 'blue'
-      style.color = 'white'
+      id.target.className = 'number-selected'
     }
   }
 
@@ -93,14 +91,14 @@ function BingoCard({numbersDrawn, user, userData}) {
   const updateMoney = async () => {
     const docRef = doc(db, "users", user.uid)
     await updateDoc(docRef, {
-      money: (userData.money + 100),
+      money: (userData.money + pot),
       wins: (userData.wins + 1)
     })
   }
 
   function isAWinner(){
     if (isCorrectNumbers() === true && declareBingo() === true){
-      alert('Congrats you win $100!!')
+      alert(`Congrats you win $${pot}!!`)
       updateMoney()
       navigate("/")
     } else {
@@ -116,43 +114,43 @@ function BingoCard({numbersDrawn, user, userData}) {
       <div id="game-columns">
       <div id="B-Column">
         <h2>B</h2>
-        <p id='b0' onClick={(id) => handleClick(id)}>{Barr[0]}</p>
-        <p id='b1' onClick={(id) => handleClick(id)}>{Barr[1]}</p>
-        <p id='b2' onClick={(id) => handleClick(id)}>{Barr[2]}</p>
-        <p id='b3' onClick={(id) => handleClick(id)}>{Barr[3]}</p>
-        <p id='b4' onClick={(id) => handleClick(id)}>{Barr[4]}</p>
+        <p id='b0'className='number-card'onClick={(id) => handleClick(id)}>{Barr[0]}</p>
+        <p id='b1'className='number-card' onClick={(id) => handleClick(id)}>{Barr[1]}</p>
+        <p id='b2'className='number-card' onClick={(id) => handleClick(id)}>{Barr[2]}</p>
+        <p id='b3'className='number-card' onClick={(id) => handleClick(id)}>{Barr[3]}</p>
+        <p id='b4'className='number-card' onClick={(id) => handleClick(id)}>{Barr[4]}</p>
       </div>
       <div id="I-Column">
         <h2>I</h2>
-        <p id='i0' onClick={(id) => handleClick(id)}>{Iarr[0]}</p>
-        <p id='i1' onClick={(id) => handleClick(id)}>{Iarr[1]}</p>
-        <p id='i2' onClick={(id) => handleClick(id)}>{Iarr[2]}</p>
-        <p id='i3' onClick={(id) => handleClick(id)}>{Iarr[3]}</p>
-        <p id='i4' onClick={(id) => handleClick(id)}>{Iarr[4]}</p>
+        <p id='i0'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[0]}</p>
+        <p id='i1'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[1]}</p>
+        <p id='i2'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[2]}</p>
+        <p id='i3'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[3]}</p>
+        <p id='i4'className='number-card' onClick={(id) => handleClick(id)}>{Iarr[4]}</p>
       </div>
       <div id="N-Column">
         <h2>N</h2>
-        <p id='n0' onClick={(id) => handleClick(id)}>{Narr[0]}</p>
-        <p id='n1' onClick={(id) => handleClick(id)}>{Narr[1]}</p>
-        <p id='n2' onClick={(id) => handleClick(id)}>Free Space</p>
-        <p id='n3' onClick={(id) => handleClick(id)}>{Narr[2]}</p>
-        <p id='n4' onClick={(id) => handleClick(id)}>{Narr[3]}</p>
+        <p id='n0'className='number-card' onClick={(id) => handleClick(id)}>{Narr[0]}</p>
+        <p id='n1'className='number-card' onClick={(id) => handleClick(id)}>{Narr[1]}</p>
+        <p id='n2'className='number-card' onClick={(id) => handleClick(id)}>Free Space</p>
+        <p id='n3'className='number-card' onClick={(id) => handleClick(id)}>{Narr[2]}</p>
+        <p id='n4'className='number-card' onClick={(id) => handleClick(id)}>{Narr[3]}</p>
       </div>
       <div id="G-Column">
       <h2>G</h2>
-        <p id='g0' onClick={(id) => handleClick(id)}>{Garr[0]}</p>
-        <p id='g1' onClick={(id) => handleClick(id)}>{Garr[1]}</p>
-        <p id='g2' onClick={(id) => handleClick(id)}>{Garr[2]}</p>
-        <p id='g3' onClick={(id) => handleClick(id)}>{Garr[3]}</p>
-        <p id='g4' onClick={(id) => handleClick(id)}>{Garr[4]}</p>
+        <p id='g0'className='number-card' onClick={(id) => handleClick(id)}>{Garr[0]}</p>
+        <p id='g1'className='number-card' onClick={(id) => handleClick(id)}>{Garr[1]}</p>
+        <p id='g2'className='number-card' onClick={(id) => handleClick(id)}>{Garr[2]}</p>
+        <p id='g3'className='number-card' onClick={(id) => handleClick(id)}>{Garr[3]}</p>
+        <p id='g4'className='number-card' onClick={(id) => handleClick(id)}>{Garr[4]}</p>
       </div>
       <div id="O-Column">
       <h2>O</h2>
-        <p id='o0' onClick={(id) => handleClick(id)}>{Oarr[0]}</p>
-        <p id='o1' onClick={(id) => handleClick(id)}>{Oarr[1]}</p>
-        <p id='o2' onClick={(id) => handleClick(id)}>{Oarr[2]}</p>
-        <p id='o3' onClick={(id) => handleClick(id)}>{Oarr[3]}</p>
-        <p id='o4' onClick={(id) => handleClick(id)}>{Oarr[4]}</p>
+        <p id='o0'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[0]}</p>
+        <p id='o1'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[1]}</p>
+        <p id='o2'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[2]}</p>
+        <p id='o3'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[3]}</p>
+        <p id='o4'className='number-card' onClick={(id) => handleClick(id)}>{Oarr[4]}</p>
       </div>
       </div>
       <button onClick={() => isAWinner()} id="bingoBttn">BINGO!</button>

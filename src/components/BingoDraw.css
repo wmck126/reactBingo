@@ -17,6 +17,20 @@
   flex-basis: 100%;
   flex: 1;
   justify-content: center;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.number-selected {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: blue;
+  color: white;
+  row-gap: 5px;
+  cursor: pointer;
 }
 
 #letter {
@@ -32,10 +46,33 @@
 #letterN{
   margin-right: 9px
 }
-.botcards{
+.botcards3{
+  display: grid;
+  grid-template-columns: repeat(3, .1fr);
+  gap: 10px;
+  border: 1px solid black;
+  justify-content: center;
+}
+
+.botcards6{
+  display: grid;
+  grid-template-columns: repeat(3, .1fr);
+  gap: 10px;
+  border: 1px solid black;
+  justify-content: center;
+}
+.botcards10{
   display: grid;
   grid-template-columns: repeat(5, .1fr);
   gap: 10px;
+  border: 1px solid black;
+  justify-content: center;
+}
+.botcards20{
+  display: grid;
+  grid-template-columns: repeat(5, .1fr);
+  gap: 10px;
+  border: 1px solid black;
   justify-content: center;
 }
 
