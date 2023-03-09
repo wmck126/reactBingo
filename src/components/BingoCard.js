@@ -102,6 +102,7 @@ function BingoCard({numbersDrawn, user, userData, pot}) {
       navigate("/")
     } else {
       alert('Sorry not a valid bingo')
+      console.log(selected)
     }
   }
   

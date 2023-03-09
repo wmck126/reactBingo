@@ -202,7 +202,7 @@ function BingoDraw({ numbersDrawn, difficulty}) {
 
   
   //how many bots? 
-  for(let i = 0; i<difficulty; i++){
+  for(let i = 0; i<0; i++){
     let keys = `id${i}`
     bots.push(BotCard(currentDraw, keys))
   } 
